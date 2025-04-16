@@ -1,15 +1,22 @@
-Source: template-repository
-Section: unknown
+Source: dfu-util
+Section: electronics
 Priority: optional
-Maintainer: Tsic404 <liuheng@deepin.org>
-Build-Depends: debhelper (>= 11)
-Standards-Version: 4.1.3
-Homepage: https://github.com/deepin-community/template-repository
-#Vcs-Browser: https://salsa.debian.org/debian/deepin-community-template-repository
-#Vcs-Git: https://salsa.debian.org/debian/deepin-community-template-repository.git
+Maintainer: Tormod Volden <debian.tormod@gmail.com>
+Build-Depends: debhelper-compat (= 13), libusb-1.0-0-dev, pkgconf, dh-exec
+Standards-Version: 4.7.2
+Homepage: https://dfu-util.sourceforge.net
+Vcs-Browser: https://salsa.debian.org/debian/dfu-util
+Vcs-Git: https://salsa.debian.org/debian/dfu-util.git
+Rules-Requires-Root: no
 
-Package: template-repository
+Package: dfu-util
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Depends: ${shlibs:Depends}, ${misc:Depends}, python3
+Description: Device firmware update (DFU) USB programmer
+ dfu-util is a program that implements the host (PC) side of the USB
+ DFU 1.0 and 1.1 (Universal Serial Bus Device Firmware Upgrade) protocol.
+ .
+ DFU is intended to download and upload firmware to devices connected over
+ USB. It ranges from small devices like micro-controller boards up to mobile
+ phones. With dfu-util you are able to download firmware to your device or
+ upload firmware from it.
