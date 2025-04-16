@@ -1,0 +1,1 @@
+Test-Command: dfu-util --list --verbose

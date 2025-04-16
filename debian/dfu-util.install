@@ -1,0 +1,2 @@
+#!/usr/bin/dh-exec
+dfuse-pack.py => /usr/bin/dfuse-pack

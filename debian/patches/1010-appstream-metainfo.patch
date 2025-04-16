@@ -1,0 +1,47 @@
+Description: Added Appstream metadata XML with hardware mapping.
+Author: Tormod Volden <debian.tormod@gmail.com>
+Bug-Debian: https://bugs.debian.org/843214
+Forwarded: https://dfu-util.sourceforge.net
+Last-Update: 2024-12-29
+---
+Index: dfu-util-salsa/Makefile.am
+===================================================================
+--- dfu-util-salsa.orig/Makefile.am	2024-12-29 06:58:52.046148614 +0100
++++ dfu-util-salsa/Makefile.am	2024-12-29 06:58:52.042148573 +0100
+@@ -1,6 +1,10 @@
+ SUBDIRS = src doc
+ 
+-EXTRA_DIST = autogen.sh TODO DEVICES.txt dfuse-pack.py
++EXTRA_DIST = autogen.sh TODO DEVICES.txt dfuse-pack.py \
++             net.sourceforge.dfu_util.metainfo.xml
++
++dist_metainfo_DATA = net.sourceforge.dfu_util.metainfo.xml
++metainfodir = $(datarootdir)/metainfo
+ 
+ wwwman: www/dfu-util.1.html www/dfu-suffix.1.html www/dfu-prefix.1.html
+ 
+Index: dfu-util-salsa/net.sourceforge.dfu_util.metainfo.xml
+===================================================================
+--- /dev/null	1970-01-01 00:00:00.000000000 +0000
++++ dfu-util-salsa/net.sourceforge.dfu_util.metainfo.xml	2024-12-29 06:59:55.786813054 +0100
+@@ -0,0 +1,20 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<component>
++  <id>net.sourceforge.dfu_util</id>
++  <metadata_license>FSFAP</metadata_license>
++  <name>dfu-util</name>
++  <summary>Device firmware update (DFU) USB programmer</summary>
++  <description>
++    <p>
++      dfu-util is a program that implements the host (PC) side of the
++      USB DFU 1.0 and 1.1 (Universal Serial Bus Device Firmware Upgrade)
++      protocol. Also the DfuSe protocol 1.1a from ST is supported.
++    </p>
++  </description>
++  <url type="homepage">https://dfu-util.sourceforge.net</url>
++  <provides>
++    <modalias>usb:v0483pDF11d*</modalias>
++    <modalias>usb:v28E9p0189d*</modalias>
++    <modalias>usb:v1D50p607Fd*</modalias>
++  </provides>
++</component>
